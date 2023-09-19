@@ -15,10 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Wait.h"
+#include "Sleep.h"
 
 int main(int argc, char** argv)
 {
-    Wait app(argc, argv);
+    Sleep app(argc, argv);
     return app.run();
 }
