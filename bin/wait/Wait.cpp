@@ -18,6 +18,7 @@ Wait::~Wait() {}
 Wait::Result Wait::exec()
 {
     const ProcessClient process;
-    ProcessID pid = atoi(argumentt().get("PROCESS_ID"));
+    ProcessID pid = atoi(arguments().get("PROCESS_ID"));
+    
 }
 
