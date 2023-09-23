@@ -21,15 +21,18 @@ Wait::Result Wait::exec()
     const ProcessClient process;
     ProcessClient::Info info;
 
+    //Get command line argument 1
     ProcessID pid = atoi(arguments().get("PROCESS_ID"));
     const ProcessClient::Result result = process.processInfo(pid, info);
 
+    // If pid is found, wait until process finishes
     if(result == ProcessClient::Success)
     {
         printf("Waiting for process %d to finish.\n", pid);
         waitpid(pid, 0, 0);
         printf("Process %d finished.\n", pid);
     }
+    //Error handling for negative pid
     else if (pid <= 0)
     {
         ERROR("invalid pid '" << arguments().get("PROCESS_ID") << "'");
