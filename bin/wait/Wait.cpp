@@ -30,6 +30,11 @@ Wait::Result Wait::exec()
         waitpid(pid, 0, 0);
         printf("Process %d finished.\n", pid);
     }
+    else if (pid <= 0)
+    {
+        ERROR("invalid pid '" << arguments().get("PROCESS_ID") << "'");
+        return InvalidArgument;
+    }
     else
     {
         printf("Process %d not found.\n", pid);
