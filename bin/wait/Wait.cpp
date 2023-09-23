@@ -34,5 +34,7 @@ Wait::Result Wait::exec()
     {
         printf("Process %d not found.\n", pid);
     }
+
+    return Success;
 }
 
