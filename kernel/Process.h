@@ -273,6 +273,11 @@ class Process
     /** Number of wakeups received */
     Size m_wakeups;
 
+    /** Priority level of process */
+    uint m_priority;
+
+
+
     /**
      * Sleep timer value.
      * If non-zero, set the process in the Ready state
