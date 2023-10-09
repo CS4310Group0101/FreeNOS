@@ -40,6 +40,7 @@ typedef enum ProcessOperation
     KillPID,
     GetPID,
     GetParent,
+    GetPriority,
     WatchIRQ,
     EnableIRQ,
     DisableIRQ,
@@ -70,6 +71,9 @@ typedef struct ProcessInfo
 
     /** Defines the current state of the Process. */
     Process::State state;
+
+    /** Defines the current priority of the Process. */
+    uint priority;
 }
 ProcessInfo;
 

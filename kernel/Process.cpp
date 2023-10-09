@@ -78,6 +78,11 @@ uint Process::getWaitResult() const
     return m_waitResult;
 }
 
+uint Process::getPriority() const
+{
+    return m_priority;
+}
+
 Process::State Process::getState() const
 {
     return m_state;

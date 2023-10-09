@@ -113,6 +113,11 @@ class Process
     uint getWaitResult() const;
 
     /**
+     * Get priority
+     */
+    uint getPriority() const;
+
+    /**
      * Get process shares.
      *
      * @return Reference to memory shares.
