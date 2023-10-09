@@ -70,6 +70,15 @@ class Process
         Waiting,
         Stopped
     };
+    
+    enum PriorityLevel {
+    Lowest = 1,
+    Low = 2,
+    Default = 3,
+    High = 4,
+    Highest = 5
+    };
+
 
   public:
 
@@ -115,7 +124,7 @@ class Process
     /**
      * Get priority
      */
-    uint getPriority() const;
+    PriorityLevel getPriority() const;
 
     /**
      * Get process shares.
@@ -279,7 +288,7 @@ class Process
     Size m_wakeups;
 
     /** Priority level of process */
-    uint m_priority;
+    PriorityLevel m_priority;
 
 
 
