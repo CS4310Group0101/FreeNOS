@@ -2,3 +2,4 @@ build/
 .sconf_temp/
 support/
 config.log
+.vscode
