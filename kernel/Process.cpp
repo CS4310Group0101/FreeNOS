@@ -83,6 +83,17 @@ Process::PriorityLevel Process::getPriority() const
     return m_priority;
 }
 
+Process::Result Process::setPriority(int priority)
+{
+    if (priority < Lowest || priority > Highest)
+    {
+        ERROR("Invalid priority level: " << priority);
+    }
+
+    m_priority = (PriorityLevel) priority;
+    return Success;
+}
+
 Process::State Process::getState() const
 {
     return m_state;

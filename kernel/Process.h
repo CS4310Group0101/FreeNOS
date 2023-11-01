@@ -70,15 +70,15 @@ class Process
         Waiting,
         Stopped
     };
-    
-    enum PriorityLevel {
-    Lowest = 1,
-    Low = 2,
-    Default = 3,
-    High = 4,
-    Highest = 5
-    };
 
+    enum PriorityLevel
+    {
+      Lowest = 1,
+      Low = 2,
+      Default = 3,
+      High = 4,
+      Highest = 5
+    };
 
   public:
 
@@ -131,6 +131,12 @@ class Process
      *
      * @return Reference to memory shares.
      */
+
+    /*
+    * Set process priority level
+    */
+    Result setPriority(int priority);
+
     ProcessShares & getShares();
 
     /**
