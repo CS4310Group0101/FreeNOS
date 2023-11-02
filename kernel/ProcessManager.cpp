@@ -97,6 +97,31 @@ Process * ProcessManager::get(const ProcessID id)
     return m_procs.get(id);
 }
 
+// TODO: implement changePriority
+ProcessManager::Result ProcessManager::changePriority(Process *proc, const int priority) {
+    // check if process is ready
+    if (proc->getState() == Process::Ready) {
+        // remove process from scheduler
+        const Result result = dequeueProcess(proc, true);
+        if (result != Success) {
+            ERROR("failed to dequeue PID " << proc->getID());
+            return IOError;
+        }
+        // set priority
+        proc->setPriority(priority);
+
+        // reinsert process into scheduler
+        const Result res = enqueueProcess(proc, false);
+        if (res != Success) {
+            ERROR("failed to enqueue PID " << proc->getID());
+            return IOError;
+        }
+    } else {
+        // set priority
+        proc->setPriority(priority);
+    }
+}
+
 void ProcessManager::remove(Process *proc, const uint exitStatus)
 {
     if (proc == m_idle)

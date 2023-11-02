@@ -48,6 +48,7 @@ typedef enum ProcessOperation
     InfoPID,
     WaitPID,
     InfoTimer,
+    RenicePID,
     WaitTimer,
     EnterSleep,
     Schedule,

@@ -166,6 +166,11 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         timer->getCurrent((Timer::Info *) addr);
         break;
 
+    case RenicePID:
+        procs->changePriority(proc, addr);
+        procs->schedule();
+        break;
+
     case WaitTimer:
         // Process is only allowed to continue execution after the sleep timer expires
         if (procs->sleep((const Timer::Info *)addr, true) != ProcessManager::Success)

@@ -66,6 +66,7 @@ Scheduler::Result Scheduler::dequeue(Process *proc, bool ignoreState)
     return InvalidArgument;
 }
 
+// TODO: implement priority scheduling (see kernel/ProcessManager.cpp)
 Process * Scheduler::select()
 {
     if (m_queue.count() > 0)

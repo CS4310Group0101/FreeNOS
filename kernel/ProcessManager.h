@@ -94,6 +94,16 @@ class ProcessManager
     Process * get(const ProcessID id);
 
     /**
+     * Change the priority of a Process.
+     *
+     * @param proc Process pointer
+     * @param priority New priority
+     *
+     * @return Result code
+     */
+    Result changePriority(Process *proc, const int priority);
+
+    /**
      * Remove a Process.
      */
     void remove(Process *proc, const uint exitStatus = 0);
