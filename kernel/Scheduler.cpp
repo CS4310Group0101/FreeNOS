@@ -69,15 +69,13 @@ Scheduler::Result Scheduler::dequeue(Process *proc, bool ignoreState)
 //added priority-based scheduling via a queue
 Process * Scheduler::select()
 {
-    Process *temp;
-    Process::PriorityLevel maxPrio;
     if (m_queue.count() > 0)
     {
         Process *p = m_queue.pop();
-        maxPrio = p->getPriority();
-        for (int i = 0; i < m_queue.size(); i++)
+        Process::PriorityLevel maxPrio = p->getPriority();
+        for (int i = 0; i < m_queue.count(); i++)
         {
-            temp = m_queue.pop();
+            Process *temp = m_queue.pop();
             if (temp->getPriority() > maxPrio)
             {
                 maxPrio = temp->getPriority();
@@ -89,6 +87,7 @@ Process * Scheduler::select()
                 m_queue.push(temp);
             }
         }
+        m_queue.push(p);
         return p;
     }
     return (Process *) NULL;
