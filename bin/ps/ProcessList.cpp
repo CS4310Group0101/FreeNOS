@@ -28,7 +28,7 @@ ProcessList::ProcessList(int argc, char **argv)
     parser().setDescription("Output system process list");
 
     // Add -l flag
-    parser().registerFlag('l', "long", "Show process id");
+    parser().registerFlag('l', "long", "Show priority levels");
 
 }
 
